@@ -40,7 +40,7 @@ public class ClientController {
         return clientService.getClientByEmail(email);
     }
 
-    @GetMapping("/sex{sex:^[a-zA-Z]+$}")
+    @GetMapping("/all{sex:^[a-zA-Z]+$}")
     public Optional<List<Client>> getClientsByGender(@PathVariable("sex") String sex) {
         return clientService.getClientsByGender(sex);
     }
