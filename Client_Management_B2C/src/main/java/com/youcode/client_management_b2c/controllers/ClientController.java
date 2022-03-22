@@ -34,4 +34,9 @@ public class ClientController {
     public Optional<Client> getClientById(@PathVariable("clientId") Long id) {
         return clientService.getClientById(id);
     }
+
+    @GetMapping("{email:.+@.+\\..+}")
+    public Optional<Client> getClientByEmail(@PathVariable("email") String email) {
+        return clientService.getClientByEmail(email);
+    }
 }
