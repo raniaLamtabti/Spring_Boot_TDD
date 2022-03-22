@@ -4,6 +4,7 @@ import com.youcode.client_management_b2c.entities.Client;
 import com.youcode.client_management_b2c.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ClientService {
@@ -17,5 +18,9 @@ public class ClientService {
             throw new IllegalStateException("email taken");
         }
         return clientRepository.save(client);
+    }
+
+    public List<Client> getClients(){
+        return clientRepository.findAll();
     }
 }
