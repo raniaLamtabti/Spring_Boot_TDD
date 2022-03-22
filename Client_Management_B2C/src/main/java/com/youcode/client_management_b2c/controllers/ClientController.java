@@ -39,4 +39,9 @@ public class ClientController {
     public Optional<Client> getClientByEmail(@PathVariable("email") String email) {
         return clientService.getClientByEmail(email);
     }
+
+    @GetMapping("sex/{sex:.+@.+\\..+}")
+    public Optional<List<Client>> getClientsByGender(@PathVariable("sex") String sex) {
+        return clientService.getClientsByGender(sex);
+    }
 }
