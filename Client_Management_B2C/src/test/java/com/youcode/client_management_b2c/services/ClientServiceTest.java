@@ -65,4 +65,27 @@ class ClientServiceTest {
         when(clientRepository.findByEmail("testtesting@gmail.com")).thenReturn(client);
         assertEquals(client, clientService.getClientByEmail("testtesting@gmail.com"));
     }
+
+    @Test
+    void deleteClient() {
+        Optional<Client> client = Optional.of(new Client (1L,"testtesting@gmail.com","0654321896","testing",26,"F",true));
+
+
+        when(clientRepository.findById(1L)).thenReturn(client);
+        clientService.deleteClient(1L);
+    }
+
+    @Test
+    void updateClient() {
+        Optional<Client> client = Optional.of(new Client (1L,"testtesting@gmail.com","0654321896","testing",23,"F",true));
+        Client clientUpdate = new Client();
+
+        clientUpdate.setEmail("testtestingu@gmail.com");
+        clientUpdate.setFullName("test");
+        clientUpdate.setGender("F");
+        clientUpdate.setPhone("0654321896");
+        clientUpdate.setAge(26);
+        clientUpdate.setActive(true);
+        clientService.updateClient(1L, clientUpdate);
+    }
 }
