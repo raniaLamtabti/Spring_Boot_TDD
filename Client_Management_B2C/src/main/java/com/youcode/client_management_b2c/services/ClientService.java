@@ -2,13 +2,17 @@ package com.youcode.client_management_b2c.services;
 
 import com.youcode.client_management_b2c.entities.Client;
 import com.youcode.client_management_b2c.repositories.ClientRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
+@Service
 public class ClientService {
     @Autowired
     ClientRepository clientRepository;
