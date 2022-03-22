@@ -44,4 +44,9 @@ public class ClientController {
     public Optional<List<Client>> getClientsByGender(@PathVariable("sex") String sex) {
         return clientService.getClientsByGender(sex);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteClient(@PathVariable Long id){
+        clientService.deleteClient(id);
+    }
 }
