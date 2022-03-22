@@ -49,4 +49,11 @@ public class ClientController {
     public void deleteClient(@PathVariable Long id){
         clientService.deleteClient(id);
     }
+
+    @PutMapping(path = "{id}")
+    public void updateClient(@PathVariable Long id,@RequestBody Client client){
+        System.out.println("full nmm" + client.getFullName());
+        clientService.updateClient(id, client);
+
+    }
 }
