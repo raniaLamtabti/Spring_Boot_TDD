@@ -48,4 +48,17 @@ public class ClientService {
         client.get().setActive(false);
     }
 
+    public void updateClient(Long id, Client client) {
+
+        Client updateClient = clientRepository.getById(id);
+
+        updateClient.setFullName(client.getFullName());
+        updateClient.setEmail(client.getEmail());
+        updateClient.setGender(client.getGender());
+        updateClient.setPhone(client.getPhone());
+        updateClient.setActive(client.isActive());
+
+        clientRepository.save(updateClient);
+    }
+
 }
