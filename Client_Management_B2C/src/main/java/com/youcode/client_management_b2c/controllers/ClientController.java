@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
@@ -27,5 +28,10 @@ public class ClientController {
     public List<Client> getClients(){
 
         return clientService.getClients();
+    }
+
+    @GetMapping("{clientId:^\\d+$}")
+    public Optional<Client> getClientById(@PathVariable("clientId") Long id) {
+        return clientService.getClientById(id);
     }
 }
