@@ -32,4 +32,8 @@ public class ClientService {
         return clientRepository.findByEmail(email);
     }
 
+    public Optional<List<Client>> getClientsByGender(String gender) {
+        return clientRepository.findByGender(gender);
+    }
+
 }
